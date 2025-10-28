@@ -59,7 +59,6 @@ li {
 .destinations{
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
     gap: 10vw 5vh;
 }
 
@@ -91,4 +90,27 @@ h3{
 
 .josefin{
     font-family: "Josefin Sans", sans-serif;
+}
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #455558;
+}
+
+.footer-item{
+    margin: auto;
+    padding-top: 15px;
+}
+
+.discover{
+    padding-bottom: 140px;
+}
+
+.transparant{
+    opacity: 0%;
+}
+
+.gras{
+    font-weight: 650;
 }
