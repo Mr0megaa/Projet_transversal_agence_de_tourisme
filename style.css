@@ -117,4 +117,12 @@ h3{
 
 .login-img{
     background-image: url('images/fond.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.center {
+  padding: 8% 40%;
 }
