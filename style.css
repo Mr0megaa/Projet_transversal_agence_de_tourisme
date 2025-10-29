@@ -12,13 +12,13 @@
     color: whitesmoke;
 }
 
-h1{
+h1 {
     font-size: 4em;
     font-weight: 600;
     margin-left: 120px;
 }
 
-.btn-1{
+.btn-1 {
     background-color: whitesmoke;
     padding: 10px;
     font-weight: 600;
@@ -34,22 +34,22 @@ h1{
     
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-.btn-1:hover{
+.btn-1:hover {
     background-color: lightgray;
     opacity: 100%;
 }
 
-.hauteur{
+.hauteur {
     margin-top: 70px;
     margin-bottom: 70px;
 }
 
-h2{
+h2 {
     font-size: 3em;
     font-weight: 650;
 }
@@ -58,13 +58,13 @@ li {
     list-style: none;
 }
 
-.destinations{
+.destinations {
     display: flex;
     flex-wrap: wrap;
     gap: 10vw 5vh;
 }
 
-.articles{
+.articles {
     width: 40vw;
     height: 40vh;
     margin: auto;
@@ -73,51 +73,51 @@ li {
 .articles img {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
     border-radius: 20px;
 }
 
-h3{
+h3 {
     margin-top: 15px;
     font-weight: 600;
 }
 
-.paragraphe{
+.paragraphe {
     font-size: 1.2em;
 }
 
-.color-principal{
+.color-principal {
     color: #455558;
 }
 
-.josefin{
+.josefin {
     font-family: "Josefin Sans", sans-serif;
 }
 
-.footer{
+.footer {
     display: flex;
     flex-wrap: wrap;
     background-color: #455558;
 }
 
-.footer-item{
+.footer-item {
     margin: auto;
     padding-top: 15px;
 }
 
-.discover{
+.discover {
     padding-bottom: 140px;
 }
 
-.transparant{
+.transparant {
     opacity: 0%;
 }
 
-.gras{
+.gras {
     font-weight: 650;
 }
 
-.login-img{
+.login-img {
     background-image: url('images/fond.jpg');
     background-size: cover;
     background-position: center;
@@ -126,7 +126,7 @@ h3{
 }
 
 .center {
-  padding: 8% 40%;
+    padding: 13.5% 0% 0% 0%;
 }
 
 .overlay-text {
