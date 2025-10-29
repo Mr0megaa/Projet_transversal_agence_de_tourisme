@@ -29,6 +29,8 @@ h1{
     border-radius: 50px;
     margin-top: 20px;
     opacity: 60%;
+    color: #455558;
+    font-size: large;
     
 }
 
@@ -125,4 +127,18 @@ h3{
 
 .center {
   padding: 8% 40%;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 100%;
+  pointer-events: none;
+}
+
+.carousel-item img {
+  object-fit: cover;
 }
