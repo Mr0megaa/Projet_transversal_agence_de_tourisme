@@ -1,11 +1,11 @@
 .img {
-    background-image: url(images/gustavo-nacht-AbMSkqLg0QA-unsplash.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .white {
@@ -113,4 +113,8 @@ h3{
 
 .gras{
     font-weight: 650;
+}
+
+.login-img{
+    background-image: url('images/fond.jpg');
 }
