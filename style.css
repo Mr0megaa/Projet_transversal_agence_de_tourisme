@@ -142,3 +142,16 @@ h3 {
 .carousel-item img {
   object-fit: cover;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 20;
+}
+
+.overlay-text a {
+  pointer-events: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
