@@ -12,21 +12,29 @@ try {
     echo "Erreur :" . $e->getMessage();
 }
 
-function ajouter_lieudevisite(PDO $database_handler, array $lieudevisite) // j'ai juste copier ce qu'il y avait dans l'exo donc pas sur du database_handler
+function ajouter_lieudevisite(PDO $database_handler, array $lieudevisite)
 {
-    $sql = "INSERT INTO lieudevisite(Nom,image,descriptif,duree,prixVisite,Id_ville) VALUES (:Nom,:image,:descriptif,:duree,:prixVisite,:Id_ville)"; // Le nom des tables est horribles, maj en plein milieu et pas sur tous, plus les majs au début sur certains et pas les autres, je sais pas comment gerer l'Id_ville
+    $sql = "INSERT INTO lieudevisite(Nom,image,descriptif,duree,prixVisite,Id_ville) VALUES (:Nom,:image,:descriptif,:duree,:prixVisite,:Id_ville)";
     $sth = $database_handler->prepare($sql);
     $sth->execute($lieudevisite);
-
-    $Nom = $lieudevisite['Nom'];
-    $result = $database_handler->query("SELECT count(*) FROM lieudevisite WHERE Nom = '$Nom'")->fetchColumn();
+}
+if (isset($_POST["button"])) {
+    $tableau = [
+        "Nom" => $_POST['Nom'],
+        "image" => $_POST['image'],
+        "descriptif" => $_POST['descriptif'],
+        "duree" => $_POST['duree'],
+        "prixVisite" => $_POST['prixVisite'],
+        "Id_ville" => $_POST['Id_ville']
+    ];
+    ajouter_lieudevisite($bdd, $tableau);
 }
 // if (isset($_POST["button"])) {
 //     echo "BIEN";
 // } else {
 //     echo "NUL";
 // }
-var_dump($_POST)
+// var_dump($_POST)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +66,7 @@ var_dump($_POST)
 </nav>
 
 <body>
-    <form action="insert.php" method="post">
+    <form action="insert_lieu.php" method="post">
         <div class="input-group flex-nowrap">
             <span class="input-group-text" id="addon-wrapping">Inserer le nom</span>
             <input type="text" class="form-control" placeholder="Nom" name="Nom" aria-label="Username" aria-describedby="addon-wrapping">

@@ -1,14 +1,16 @@
 <?php
-
-$mail = $_POST["email"];
-$pass = $_POST["password"];
-
-if ($mail == "admin@admin" && $pass == "password") {
-  header("Location: admin.html"); //Redirige en PHP
-  exit();
-} else {
-  echo "mdp incorrect"; //fonctionne pas (surement parce que je lui ai pas dit ou l'écrire)
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  $mail = $_POST["email"];
+  $pass = $_POST["password"];
+  if ($mail == "admin@admin" && $pass == "password") {
+    header("Location: admin.html"); //Redirige en PHP
+    exit();
+  } else {
+    // FIXME : fonctionne pas (surement parce que je lui ai pas dit ou l'écrire)
+    echo "mdp incorrect";
+  }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

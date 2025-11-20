@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-
+//TODO : Faire un mode de connection avec un gitignore pour éviter de mettre tout ce pavé a chaque page qui a besoin de se connecter (quasiment toutes les pages)
 try {
     $bdd    = new PDO("mysql:host=$servername;dbname=voyage_voyage", $username, $password);
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,26 +12,30 @@ try {
     echo "Erreur :" . $e->getMessage();
 }
 
-function ajouter_circuit(PDO $database_handler, array $circuit) // j'ai juste copier ce qu'il y avait dans l'exo donc pas sur du database_handler
+function ajouter_circuit(PDO $database_handler, array $circuit)
 {
-    $sql = "INSERT INTO circuit(descriptif,dateDepart,nbPlacesDispo,duree,prixInscription,Ville_depart,Ville_arrivee) VALUES (:descriptif,:dateDepart,:nbPlacesDispo,:duree,:prixInscription,:Ville_depart,:Ville_arrivee)"; // Le nom des tables est horribles, maj en plein milieu et pas sur tous, plus les majs au début sur certains et pas les autres, et y'a pas de nom pour le circuit aussi, faut revoir sa
+    $sql = "INSERT INTO circuit(descriptif,dateDepart,nbPlacesDispo,duree,prixInscription,Ville_depart,Ville_arrivee) VALUES (:descriptif,:dateDepart,:nbPlacesDispo,:duree,:prixInscription,:Ville_depart,:Ville_arrivee)";
     $sth = $database_handler->prepare($sql);
     $sth->execute($circuit);
-
-    $descriptif = $circuit['descriptif'];
-    $result = $database_handler->query("SELECT count(*) FROM circuit WHERE descriptif = '$descriptif'")->fetchColumn();
 }
 if (isset($_POST["button"])) {
-    function ajouter_circuit ();
-} else {
-    echo "NUL";
+    $tableau = [
+        "descriptif" => $_POST['descriptif'],
+        "dateDepart" => $_POST['dateDepart'],
+        "nbPlacesDispo" => $_POST['nbPlacesDispo'],
+        "duree" => $_POST['duree'],
+        "prixInscription" => $_POST['prixInscription'],
+        "Ville_depart" => $_POST['Ville_depart'],
+        "Ville_arrivee" => $_POST['Ville_arrivee']
+    ];
+    ajouter_circuit($bdd, $tableau);
 }
 // if (isset($_POST["button"])) {
 //     echo "BIEN";
 // } else {
 //     echo "NUL";
 // }
-var_dump($_POST)
+// var_dump($_POST)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,34 +66,34 @@ var_dump($_POST)
 </nav>
 
 <body>
-    <form action="insert.php" method="post">
+    <form action="insert_circuit.php" method="post">
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer le descriptif</span>
+            <span class="input-group-text" id="addon-wrapping">Insérer le descriptif</span>
             <input type="text" class="form-control" placeholder="Descriptif" name="descriptif" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer la date de départ</span>
-            <input type="text" class="form-control" placeholder="YYYY-MM-DD HH-MM-SS" name="dateDepart" aria-label="Username" aria-describedby="addon-wrapping"> <!-- Le format date heure est pas ouf, il faut le changer ou trouver une solution pour que l'admin le change sans faire d'erreur-->
+            <span class="input-group-text" id="addon-wrapping">Insérer la date de départ</span>
+            <input type="datetime-local" class="form-control" placeholder="YYYY-MM-DD HH-MM-SS" name="dateDepart" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer le nombre de place disponible</span>
+            <span class="input-group-text" id="addon-wrapping">Insérer le nombre de place disponible</span>
             <input type="text" class="form-control" placeholder="Place disponible" name="nbPlacesDispo" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer la durée du voyage</span>
+            <span class="input-group-text" id="addon-wrapping">Insérer la durée du voyage</span>
             <input type="text" class="form-control" placeholder="Durée du voyage" name="duree" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer le prix d'inscription</span>
+            <span class="input-group-text" id="addon-wrapping">Insérer le prix d'inscription</span>
             <input type="text" class="form-control" placeholder="Prix d'inscription" name="prixInscription" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer la ville de départ</span>
-            <input type="text" class="form-control" placeholder="Ville de départ" name="Ville_depart" aria-label="Username" aria-describedby="addon-wrapping">
+            <span class="input-group-text" id="addon-wrapping">Insérer l'id de la ville de départ</span>
+            <input type="text" class="form-control" placeholder="Id de la ville de départ" name="Ville_depart" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Inserer la ville d'arrivée</span>
-            <input type="text" class="form-control" placeholder="Ville d'arrivée" name="Ville_arrivee" aria-label="Username" aria-describedby="addon-wrapping">
+            <span class="input-group-text" id="addon-wrapping">Insérer l'id de la ville d'arrivée</span>
+            <input type="text" class="form-control" placeholder="Id de la ville d'arrivée" name="Ville_arrivee" aria-label="Username" aria-describedby="addon-wrapping">
         </div>
         <input class="btn btn-primary" type="submit" name="button" value="Envoyer"></input>
     </form>
