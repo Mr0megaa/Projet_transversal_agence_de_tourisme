@@ -1,17 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-// Faire un mode de connection avec un gitignore pour éviter de mettre tout ce pavé a chaque page qui a besoin de se connecter (quasiment toutes les pages)
-try {
-    $bdd    = new PDO("mysql:host=$servername;dbname=voyage_voyage", $username, $password);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connexion réussi";
-} catch (PDOException $e) {
-    echo "Erreur :" . $e->getMessage();
-}
-
+include "connect.php";
 function ajouter_circuit(PDO $database_handler, array $etape)
 {
     $sql = "INSERT INTO etape(ordre,dateEtape,Id_LieuDeVisite,Id_Circuit) VALUES (:ordre,:dateEtape,:Id_LieuDeVisite,:Id_Circuit)";
@@ -46,7 +35,7 @@ if (isset($_POST["button"])) {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="admin.html"> Voyage Admin</a>
+        <a class="navbar-brand fw-bold" href="admin.php"> Voyage Admin (Ajout d'une étape)</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>

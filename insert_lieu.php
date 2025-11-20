@@ -1,17 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-try {
-    $bdd    = new PDO("mysql:host=$servername;dbname=voyage_voyage", $username, $password);
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // echo "Connexion réussi";
-} catch (PDOException $e) {
-    echo "Erreur :" . $e->getMessage();
-}
-
+include "connect.php";
 function ajouter_lieudevisite(PDO $database_handler, array $lieudevisite)
 {
     $sql = "INSERT INTO lieudevisite(Nom,image,descriptif,duree,prixVisite,Id_ville) VALUES (:Nom,:image,:descriptif,:duree,:prixVisite,:Id_ville)";
@@ -48,7 +37,7 @@ if (isset($_POST["button"])) {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="admin.html"> Voyage Admin (ajout d'un lieu à visiter)</a>
+        <a class="navbar-brand fw-bold" href="admin.php"> Voyage Admin (ajout d'un lieu à visiter)</a>
         <!-- Rajouter le nom de la page comme ci-dessus entre parenthèse sur toutes les pages -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>

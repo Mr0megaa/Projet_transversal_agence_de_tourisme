@@ -3,7 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   $mail = $_POST["email"];
   $pass = $_POST["password"];
   if ($mail == "admin@admin" && $pass == "password") {
-    header("Location: admin.html"); //Redirige en PHP
+    header("Location: admin.php"); //Redirige en PHP
     exit();
   } else {
     // FIXME : fonctionne pas (surement parce que je lui ai pas dit ou l'écrire)
