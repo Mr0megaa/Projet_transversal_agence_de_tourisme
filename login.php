@@ -51,6 +51,7 @@ if ($mail == "admin@admin" && $pass == "password") {
         <div class="card shadow-sm">
           <div class="card-body">
             <h3 class="card-title text-center mb-4">Sign In</h3>
+            <!-- pas oublier le form pour le php -->
             <form method="POST" action="">
               <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
