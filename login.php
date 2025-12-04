@@ -33,10 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
+<<<<<<< HEAD:login.html
+          <a class="nav-link fw-bold black margin10 josefin color-principal" href="index.html#destination">DESTINATION</a>
+=======
           <a class="nav-link fw-bold black margin10 josefin color-principal" href="#index.html">DESTINATION</a>
+>>>>>>> d2df8aa0db9f5d3d333ae316f982141edbd5614f:login.php
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold black margin10 josefin color-principal" href="#">CIRCUIT</a>
+          <a class="nav-link fw-bold black margin10 josefin color-principal" href="circuit.html">CIRCUIT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold black margin10 josefin color-principal" href="login.php">PROFIL</a>

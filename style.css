@@ -129,29 +129,35 @@ h3 {
     padding: 13.5% 0% 0% 0%;
 }
 
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  width: 100%;
-  pointer-events: none;
-}
-
-.carousel-item img {
-  object-fit: cover;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 20;
-}
-
 .overlay-text a {
   pointer-events: auto;
 }
 
-html {
-  scroll-behavior: smooth;
+.background-img {
+    background-image: url(images/pexels-quang-nguyen-vinh-222549-2166711.jpg);
+    height: 100vh;
+    background-size: cover;
+    overflow: hidden;
+    background-attachment: fixed;
 }
+
+.down-start {
+    padding-top: 300px;
+}
+
+#destination {
+    scroll-margin-top: 125px;
+}
+ .circuit{
+    margin-top: 50px;
+ }
+
+ .h1-circuit{
+    text-align: center;
+    align-items: center;
+    margin: auto;
+ }
+
+ .navbar{
+    box-shadow: 0 4px 4px lightgray;
+ }
