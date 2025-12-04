@@ -1,30 +1,36 @@
 <?php
 
 include "connect.php";
-function supprimer_circuit(PDO $database_handler, array $circuit)
+function supprimer_circuit(PDO $database_handler, int $id_circuit)
 {
     $sql = ("DELETE FROM circuit where Id_Circuit =:Id_Circuit");
     $sth = $database_handler->prepare($sql);
-    $sth->execute($circuit);
+    $sth->execute(['Id_Circuit' => $id_circuit]);
 }
-if (isset($_POST["button"])) {
-    $tableau = [
-        "descriptif" => $_POST['descriptif'],
-        "dateDepart" => $_POST['dateDepart'],
-        "nbPlacesDispo" => $_POST['nbPlacesDispo'],
-        "duree" => $_POST['duree'],
-        "prixInscription" => $_POST['prixInscription'],
-        "Ville_depart" => $_POST['Ville_depart'],
-        "Ville_arrivee" => $_POST['Ville_arrivee']
+if (isset($_POST["Id_Circuit"])) {
+    $id = (int) $_POST["Id_Circuit"];
+    supprimer_circuit($bdd, $id);
+}
+
+$sql = 'SELECT Id_Circuit, descriptif, dateDepart, nbPlacesDispo, duree, prixInscription, Ville_depart, Ville_arrivee 
+        FROM circuit 
+        ORDER BY Id_Circuit';
+
+$result = $bdd->query($sql);
+
+$circuit = [];
+foreach ($result as $ligne) {
+    $circuit[] = [
+        'Id_Circuit'      => $ligne['Id_Circuit'],
+        'descriptif'      => $ligne['descriptif'],
+        'dateDepart'      => $ligne['dateDepart'],
+        'nbPlacesDispo'   => $ligne['nbPlacesDispo'],
+        'duree'           => $ligne['duree'],
+        'prixInscription' => $ligne['prixInscription'],
+        'Ville_depart'    => $ligne['Ville_depart'],
+        'Ville_arrivee'   => $ligne['Ville_arrivee']
     ];
-    supprimer_circuit($bdd, $tableau);
 }
-// if (isset($_POST["button"])) {
-//     echo "BIEN";
-// } else {
-//     echo "NUL";
-// }
-// var_dump($_POST)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +44,7 @@ if (isset($_POST["button"])) {
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="admin.php"> Voyage Admin (Ajout d'un circuit)</a>
+        <a class="navbar-brand fw-bold" href="admin.php"> Voyage Admin (Suppression d'un circuit)</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,36 +61,42 @@ if (isset($_POST["button"])) {
 </nav>
 
 <body>
-    <form action="insert_circuit.php" method="post">
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer le descriptif</span>
-            <input type="text" class="form-control" placeholder="Descriptif" name="descriptif" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer la date de départ</span>
-            <input type="datetime-local" class="form-control" placeholder="YYYY-MM-DD HH-MM-SS" name="dateDepart" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer le nombre de place disponible</span>
-            <input type="text" class="form-control" placeholder="Place disponible" name="nbPlacesDispo" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer la durée du voyage</span>
-            <input type="text" class="form-control" placeholder="Durée du voyage" name="duree" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer le prix d'inscription</span>
-            <input type="text" class="form-control" placeholder="Prix d'inscription" name="prixInscription" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer l'id de la ville de départ</span>
-            <input type="text" class="form-control" placeholder="Id de la ville de départ" name="Ville_depart" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Insérer l'id de la ville d'arrivée</span>
-            <input type="text" class="form-control" placeholder="Id de la ville d'arrivée" name="Ville_arrivee" aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-        <input class="btn btn-primary" type="submit" name="button" value="Envoyer"></input>
+    <form action="delete_circuit.php" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id_Circuit</th>
+                    <th scope="col">descriptif</th>
+                    <th scope="col">dateDepart</th>
+                    <th scope="col">nbPlacesDispo</th>
+                    <th scope="col">duree</th>
+                    <th scope="col">prixInscription</th>
+                    <th scope="col">Ville_depart</th>
+                    <th scope="col">Ville_arrivee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($circuit as $ligne): ?>
+                    <tr>
+                        <td><?php echo ($ligne['Id_Circuit']) ?></td>
+                        <td><?php echo ($ligne['descriptif']) ?></td>
+                        <td><?php echo ($ligne['dateDepart']) ?></td>
+                        <td><?php echo ($ligne['nbPlacesDispo']) ?></td>
+                        <td><?php echo ($ligne['duree']) ?></td>
+                        <td><?php echo ($ligne['prixInscription']) ?></td>
+                        <td><?php echo ($ligne['Ville_depart']) ?></td>
+                        <td><?php echo ($ligne['Ville_arrivee']) ?></td>
+                        <td>
+                            <button type="submit" name="Id_Circuit" value="<?php echo $ligne['Id_Circuit'] ?>" class="btn btn-danger btn-sm">
+                                Supprimer
+                            </button>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+
+            </tbody>
+        </table>
     </form>
 </body>
 

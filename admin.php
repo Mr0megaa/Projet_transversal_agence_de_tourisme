@@ -36,7 +36,7 @@
             </div>
         </div>
     </nav>
-
+    <!-- TODO : Mettre la navbar admin dans un autre ficher pour pouvoir l'appeller sans tout copier/coller -->
     <div class="container py-4">
 
         <h1 class="mb-4 fw-bold">AJOUTER — Voyage-Voyage</h1>
@@ -70,142 +70,77 @@
             </div>
         </div>
 
-        <div class="container py-4">
 
-            <h1 class="mb-4 fw-bold">SUPPRIMER — Voyage-Voyage</h1>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Suppression d'un circuit</h5>
-                            <a href="delete_circuit.php" class="btn btn-primary btn-sm">Supprimer un circuit</a>
-                        </div>
-                    </div>
-                </div>
+        <h1 class="mb-4 fw-bold mt-5">SUPPRIMER — Voyage-Voyage</h1>
 
-                <div class="col-md-4">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Suppression d'une étape</h5>
-                            <a href="delete_etape.php" class="btn btn-success btn-sm">Supprimer une étape</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Suppression d'un lieu à visiter</h5>
-                            <a href="delete_lieu.php" class="btn btn-warning btn-sm">Supprimer un lieu à visiter</a>
-                        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Suppression d'un circuit</h5>
+                        <a href="delete_circuit.php" class="btn btn-primary btn-sm">Supprimer un circuit</a>
                     </div>
                 </div>
             </div>
 
-            <div class="container py-4">
-
-                <h1 class="mb-4 fw-bold">MODIFIER — Voyage-Voyage</h1>
-
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body">
-                                <h5 class="card-title">Modification d'un circuit</h5>
-                                <a href="modif_circuit.php" class="btn btn-primary btn-sm">Modifier un circuit</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body">
-                                <h5 class="card-title">Modification d'une étape</h5>
-                                <a href="modif_etape.php" class="btn btn-success btn-sm">Modifier une étape</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body">
-                                <h5 class="card-title">Modification d'un lieu à visiter</h5>
-                                <a href="modif_lieu.php" class="btn btn-warning btn-sm">Modifier un lieu à visiter</a>
-                            </div>
-                        </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Suppression d'une étape</h5>
+                        <a href="delete_etape.php" class="btn btn-success btn-sm">Supprimer une étape</a>
                     </div>
                 </div>
-                <!-- 
-        <div class="mt-5">
-            <h2 class="fw-bold mb-3">Voyages disponibles</h2>
+            </div>
 
-            <div class="table-responsive shadow-sm">
-                <table class="table table-striped table-hover align-middle">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>ID</th>
-                            <th>Nom du voyage</th>
-                            <th>Description</th>
-                            <th>Places dispo</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Rio de Janeiro</td>
-                            <td>Plages dorées, samba vibrante, montagnes majestueuses, Rio enchante chaque instant.</td>
-                            <td>20</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-primary">Modifier</button>
-                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>Machu Picchu</td>
-                            <td>Ruines sacrées, montagnes brumeuses, silence mystique, le Machu Picchu fascine les âmes.
-                            </td>
-                            <td>15</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-primary">Modifier</button>
-                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>Bali</td>
-                            <td>Rizières verdoyantes, temples sacrés, vagues turquoise, Bali apaise l’esprit.</td>
-                            <td>10</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-primary">Modifier</button>
-                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>Japon</td>
-                            <td>Cerisiers en fleurs, temples anciens, néons vibrants, le Japon émerveille toujours.</td>
-                            <td>18</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-primary">Modifier</button>
-                                <button class="btn btn-sm btn-outline-danger">Supprimer</button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Suppression d'un lieu à visiter</h5>
+                        <a href="delete_lieu.php" class="btn btn-warning btn-sm">Supprimer un lieu à visiter</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-    </div> -->
 
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-                </script>
+
+        <h1 class="mb-4 fw-bold mt-5">MODIFIER — Voyage-Voyage</h1>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Modification d'un circuit</h5>
+                        <a href="modif_circuit.php" class="btn btn-primary btn-sm">Modifier un circuit</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Modification d'une étape</h5>
+                        <a href="modif_etape.php" class="btn btn-success btn-sm">Modifier une étape</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title">Modification d'un lieu à visiter</h5>
+                        <a href="modif_lieu.php" class="btn btn-warning btn-sm">Modifier un lieu à visiter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 </body>
 
 </html>
