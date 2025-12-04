@@ -13,10 +13,6 @@
 
     <?php
     include "connect.php";
-    // $sql = "SELECT * FROM circuit";
-    // $sth = $bdd->prepare($sql);
-    // $sth->execute([]);
-    // $pays = var_dump($sth->fetchAll());
     ?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
