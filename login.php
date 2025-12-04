@@ -1,3 +1,17 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  $mail = $_POST["email"];
+  $pass = $_POST["password"];
+  if ($mail == "admin@admin" && $pass == "password") {
+    header("Location: admin.php"); //Redirige en PHP
+    exit();
+  } else {
+    // FIXME : fonctionne pas (surement parce que je lui ai pas dit ou l'écrire)
+    echo "mdp incorrect";
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,13 +33,17 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
+<<<<<<< HEAD:login.html
           <a class="nav-link fw-bold black margin10 josefin color-principal" href="index.html#destination">DESTINATION</a>
+=======
+          <a class="nav-link fw-bold black margin10 josefin color-principal" href="#index.html">DESTINATION</a>
+>>>>>>> d2df8aa0db9f5d3d333ae316f982141edbd5614f:login.php
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold black margin10 josefin color-principal" href="circuit.html">CIRCUIT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold black margin10 josefin color-principal" href="login.html">PROFIL</a>
+          <a class="nav-link fw-bold black margin10 josefin color-principal" href="login.php">PROFIL</a>
         </li>
       </ul>
     </div>
@@ -39,14 +57,16 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <h3 class="card-title text-center mb-4">Sign In</h3>
-            <form>
+            <!-- pas oublier le form pour le php -->
+            <form method="POST" action="">
               <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <!-- name="email" et password pour le php -->
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
               </div>
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
               </div>
               <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
