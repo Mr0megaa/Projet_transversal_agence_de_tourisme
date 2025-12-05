@@ -31,7 +31,7 @@ h1 {
     opacity: 60%;
     color: #455558;
     font-size: large;
-    
+
 }
 
 a {
@@ -130,7 +130,7 @@ h3 {
 }
 
 .overlay-text a {
-  pointer-events: auto;
+    pointer-events: auto;
 }
 
 .background-img {
@@ -148,18 +148,19 @@ h3 {
 #destination {
     scroll-margin-top: 125px;
 }
- .circuit{
-    margin-top: 50px;
- }
 
- .h1-circuit{
+.circuit {
+    margin-top: 50px;
+}
+
+.h1-circuit {
     text-align: center;
     align-items: center;
     margin: auto;
     font-weight: bold;
  }
 
- .navbar{
+.navbar {
     box-shadow: 0 4px 4px lightgray;
  }
 
