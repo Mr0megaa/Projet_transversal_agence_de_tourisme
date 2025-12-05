@@ -28,16 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <a class="navbar-brand orange gras josefin color-principal" href="index.html">Voyage-Voyage</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-<<<<<<< HEAD:login.html
           <a class="nav-link fw-bold black margin10 josefin color-principal" href="index.html#destination">DESTINATION</a>
-=======
-          <a class="nav-link fw-bold black margin10 josefin color-principal" href="#index.html">DESTINATION</a>
->>>>>>> d2df8aa0db9f5d3d333ae316f982141edbd5614f:login.php
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold black margin10 josefin color-principal" href="circuit.html">CIRCUIT</a>
