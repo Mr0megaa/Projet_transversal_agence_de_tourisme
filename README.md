@@ -3,13 +3,9 @@ Dans le cadre de ce projet, nous allons réaliser une application pour une agenc
 attendus de ce projet sont de valider les acquis au sein du bloc de compétences .
 
 ## Livraison et mode d’évaluation
-Code réalisé
-Livrer le code de l’application par le biais d’un dépôt GIT. N’oubliez pas de définir le dépôt comme
-public afin que le correcteur puisse les visualiser.
-Le lien du dépôt doit être livré au coach du projet transversal.
+Code réalisé et livré par le biais d’un dépôt GIT.
+
 ## Schémas
-Les schémas réalisés lors des premières étapes de chaque partie doivent être livrés par le biais du
-dépôt git.
 Requêtes SQL
 Les requêtes réalisés lors de la partie 1 doivent être livrés au sein d’un fichierdatabase/requetes.sql
 au sein du dépôt git. Le jeu de données réalisé est également à fournir au sein du fichier
